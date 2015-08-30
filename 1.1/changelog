@@ -1,0 +1,4 @@
+Version 1.1 - Apr 27, 2013 20:57
+
+- fixed bug: character s stopped working after saving once
+- fixed bug: save doesn't work on IE

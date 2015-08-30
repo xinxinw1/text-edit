@@ -1,0 +1,8 @@
+Version 1.3 - May 10, 2013 22:41
+
+- security: prevent access to files outside of /docs dir
+- allow filenames and contents to have special chars (means filenames are all escaped)
+- pressing enter on name field goes to new document
+- changing name and saving saves automatically updates address bar
+- onbeforeunload only checks if text has changed not name
+- origText is only updated when save is completed

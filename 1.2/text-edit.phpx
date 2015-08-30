@@ -1,0 +1,37 @@
+<?php
+if (isset($_POST['name'])){
+  $name = $_POST['name'];
+  $text = $_POST['text'];
+  
+  $file = "../docs/$name";
+  die(file_put_contents($file, $text));
+}
+$name = "Title"; $text = "";
+if (isset($_GET['name'])){
+  $name = $_GET['name'];
+  $file = "../docs/$name";
+  $text = (file_exists($file))?file_get_contents($file):"";
+}
+?>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><?php echo $name ?> | Online Text Editor 1.2</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="text-edit.css">
+  <script src="text-edit.js" type="text/javascript" defer></script>
+  <script type="text/javascript">
+  var origName = "<?php echo $name ?>";
+  var origText = "<?php echo str_replace("\n", "\\n", $text) ?>";
+  </script>
+</head>
+
+<body>
+  <form id="form">
+    <div id="top"><input name="name" id="name" value="<?php echo $name ?>"></div>
+    <div id="main"><textarea name="text" id="text"><?php echo $text ?></textarea></div>
+  </form>
+</body>
+
+</html>
