@@ -23,14 +23,16 @@ if (isset($_GET['name'])){
   }
 }
 ?>
-<?php $updated = "Jul.18.2013.14.34"; ?>
+<?php $updated = time(); ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>Online Text Editor 1.5</title>
+  <title>Online Text Editor Devel</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="text-edit.css?<?php echo $updated ?>">
+  <script src="/codes/libjs/tools/1.x/tools.js"></script>
+  <script src="/codes/libjs/ajax/2.x/ajax.js"></script>
   <script src="text-edit.js?<?php echo $updated ?>" type="text/javascript" defer></script>
   <script type="text/javascript">
   var origName = decodeURIComponent("<?php echo $name ?>");

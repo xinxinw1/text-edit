@@ -1,8 +1,7 @@
-/****** Online Text Editor 1.5 ******/
+/****** Online Text Editor Devel ******/
 
-function $(a){
-  return document.getElementById(a);
-}
+/* requires tools 1.x */
+/* requires ajax 2.x */
 
 if (navigator.userAgent.indexOf("Linux") != -1){
   $("name").style.font = "bold 16px \"DejaVu Sans Mono\"";
@@ -12,7 +11,7 @@ if (navigator.userAgent.indexOf("Linux") != -1){
 window.onload = function (){
   $("name").value = origName;
   $("text").value = origText;
-  document.title = origName + " | Online Text Editor 1.5";
+  document.title = origName + " | Online Text Editor Devel";
 }
 
 if (writable){
@@ -44,30 +43,8 @@ if (writable){
         }
       }
     }
+    var type = "POST";
     
-    ajaxRequest(file, param, func);
-  }
-  
-  function ajaxRequest(file, param, func){
-    var ajax;
-    if (window.XMLHttpRequest){
-      ajax = new XMLHttpRequest();
-    } else {
-      ajax = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    
-    ajax.onreadystatechange = function (){
-      if (ajax.readyState == 4){
-        if (ajax.status == 200){
-          func(ajax.responseText);
-        } else {
-          alert("An error has occurred! Status: " + ajax.status);
-        }
-      }
-    }
-    
-    ajax.open("POST", file, true);
-    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    ajax.send(param);
+    Ajax.sendRequest(file, param, func, type);
   }
 }
