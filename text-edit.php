@@ -38,7 +38,15 @@ if (isset($_GET['name']) && $_GET['name'] != ""){
 
 <body>
   <form action="text-edit.php" method="get">
-    <div id="top"><input name="name" id="name"></div>
+    <div id="top">
+      <table><tr>
+        <td id="input"><input name="name" type="text" id="name"></td>
+        <td id="buttons">
+        <?php if ($writable == "false"){ ?>
+          <input type="button" value="Read-only" id="readonly" disabled>
+          <?php } ?>
+        </td>
+      </tr></table>
     <div id="main"><textarea id="text"<?php if ($writable == "false"){ ?> readonly<?php } ?>></textarea></div>
   </form>
 </body>

@@ -9,6 +9,7 @@ function $(a){
 
 if (navigator.userAgent.indexOf("Linux") != -1){
   $("name").style.font = "bold 16px \"DejaVu Sans Mono\"";
+  $("buttons").style.font = "bold 16px \"DejaVu Sans Mono\"";
   $("text").style.font = "12px \"DejaVu Sans Mono\"";
 }
 
