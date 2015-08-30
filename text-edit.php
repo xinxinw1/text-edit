@@ -6,15 +6,15 @@ if (isset($_POST['name'])){
   
   if (!is_dir("docs"))mkdir("docs");
   
-  $file = "docs/$name";
+  $file = "docs/" . base64_encode($name);
   if (!file_exists($file) || is_writable($file)){
     die(file_put_contents($file, $text));
   } else die();
 }
 $name = "Title"; $text = ""; $writable = "true";
-if (isset($_GET['name'])){
+if (isset($_GET['name']) && $_GET['name'] != ""){
   $name = rawurlencode($_GET['name']);
-  $file = "docs/$name";
+  $file = "docs/" . base64_encode($name);
   if (isset($_GET['type'])){
     if ($_GET['type'] == "make-readonly")chmod($file, 0444);
     if ($_GET['type'] == "make-writable")chmod($file, 0644);

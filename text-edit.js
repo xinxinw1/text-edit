@@ -14,6 +14,10 @@ window.onload = function (){
   document.title = origName + " | Online Text Editor 2.0";
 }
 
+function go(name){
+  window.location.assign("text-edit.php?name=" + encodeURIComponent(name));
+}
+
 if (writable){
   function checkSave(e){
     if (window.event)e = event;
@@ -41,9 +45,7 @@ if (writable){
               if (r != "")alert(r);
               else {
                 origText = text;
-                if (origName != name){
-                  window.location.assign("text-edit.php?name=" + encodeURIComponent(name));
-                }
+                if (origName != name)go(name);
               }
             });
   }
