@@ -32,8 +32,6 @@ if (isset($_GET['name']) && $_GET['name'] != ""){
   <title>Online Text Editor 2.0</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="text-edit.css">
-  <script src="lib/tools/tools.js"></script>
-  <script src="lib/ajax/ajax.js"></script>
   <script src="text-edit.js" defer></script>
   <script>
   var origName = decodeURIComponent("<?php echo $name ?>");

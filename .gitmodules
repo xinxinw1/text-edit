@@ -1,6 +1,0 @@
-[submodule "lib/tools"]
-	path = lib/tools
-	url = git@github.com:xinxinw1/tools.git
-[submodule "lib/ajax"]
-	path = lib/ajax
-	url = git@github.com:xinxinw1/ajax.git
