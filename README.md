@@ -11,16 +11,16 @@ You need a server that runs php and git and has .htaccess and mod_rewrite enable
 $ git clone https://github.com/xinxinw1/text-edit.git
 ```
 
-Then visit http://<your site>/<some directory>/text-edit/
+Then visit `http://<your site>/<some directory>/text-edit/`
 
 ## Usage
 
-To go to a page directly, go to http://<your site>/<some directory>/text-edit/?name=<file name>
+To go to a page directly, go to `http://<your site>/<some directory>/text-edit/?name=<file name>`
 
-To go to the admin panel, go to http://<your site>/<some directory>/text-edit/admin
+To go to the admin panel, go to `http://<your site>/<some directory>/text-edit/admin`
 
 It is recommended that you set a password.
 
-If you forgot the password, delete admin-pass
+If you forgot the password, delete `admin-pass`
 
-All documents are stored under docs/. Names (but not contents) are base64-encoded.
+All documents are stored under `docs/`. Names (but not contents) are base64-encoded.
