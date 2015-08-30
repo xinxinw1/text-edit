@@ -39,9 +39,9 @@ if (isset($_SESSION['priv'])){
       $mess = "\"$origname\" doesn't exist";
     }
   }
-  if (isset($_POST['logout'])){
+  if (isset($_GET['logout'])){
     session_destroy();
-    header("Location: {$_SERVER['PHP_SELF']}");
+    header("Location: admin");
     die();
   }
 }
@@ -59,12 +59,13 @@ if (isset($_SESSION['priv'])){
   input {border: 1px solid #000; padding: 1px 2px; width: 100%;}
   input[type=submit] {background-color: #F1EFEB; padding: 1px 10px; width: auto;}
   input[type=submit]:hover {background-color: #E6E3DE;}
+  a {color: #005ec8;}
   </style>
 </head>
 
 <body>
   <div id="main">
-    <h2>Admin | Online Text Editor 2.0</h2>
+    <h2>Admin | Online Text Editor 2.0<?php if (isset($_SESSION['priv'])){ ?> | <a href="admin?logout=true">Logout</a><?php } ?></h2>
     <p>Type in the box and press Enter to submit.</p>
     <?php if (isset($_SESSION['priv'])){ ?>
     <form action="admin" method="post">
@@ -75,9 +76,6 @@ if (isset($_SESSION['priv'])){
     </form>
     <form action="admin" method="post">
       <p>New Password: <input type="password" name="newpass"></p>
-    </form>
-    <form action="admin" method="post">
-      <p><input type="submit" name="logout" value="Logout"></p>
     </form>
     <?php } else { ?>
     <form action="admin" method="post">
