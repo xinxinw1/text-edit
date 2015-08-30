@@ -39,6 +39,17 @@ if (isset($_SESSION['priv'])){
       $mess = "\"$origname\" doesn't exist";
     }
   }
+  if (isset($_POST['delete'])){
+    $origname = $_POST['delete'];
+    $name = rawurlencode($origname);
+    $file = "docs/" . base64_encode($name);
+    if (file_exists($file)){
+      unlink($file);
+      $mess = "Deleted \"$origname\"";
+    } else {
+      $mess = "\"$origname\" doesn't exist";
+    }
+  }
   if (isset($_GET['logout'])){
     session_destroy();
     header("Location: admin");
@@ -73,6 +84,9 @@ if (isset($_SESSION['priv'])){
     </form>
     <form action="admin" method="post">
       <p>Unprotect: <input type="text" name="unprotect"></p>
+    </form>
+    <form action="admin" method="post">
+      <p>Delete: <input type="text" name="delete"></p>
     </form>
     <form action="admin" method="post">
       <p>New Password: <input type="password" name="newpass"></p>
