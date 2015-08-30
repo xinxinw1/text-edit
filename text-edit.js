@@ -19,8 +19,13 @@ window.onload = function (){
   document.title = origName + " | Online Text Editor 2.0";
 }
 
+$("form").onsubmit = function (){
+  go($("name").value);
+  return false;
+}
+
 function go(name){
-  window.location.assign("text-edit.php?name=" + encodeURIComponent(name));
+  window.location.assign("?name=" + encodeURIComponent(name));
 }
 
 if (writable){
@@ -68,7 +73,7 @@ if (writable){
   }
   
   function saveFile(name, text){
-    apost("text-edit.php",
+    apost("index.php",
           "name=" + encodeURIComponent(name) +
           "&text=" + encodeURIComponent(text),
           function (r){

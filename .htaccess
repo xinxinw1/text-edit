@@ -1,4 +1,2 @@
 RewriteEngine on
-# http://stackoverflow.com/questions/9102358/mod-rewrite-with-relative-path-redirects
-RewriteCond %{REQUEST_URI} ^(/[^/]+/([^/]+/)*) [NC]
-RewriteRule ^docs/(.*)$ http://%{HTTP_HOST}%1../text-edit.php?name=$1 [R=302]
+RewriteRule ^docs/(.*)$ - [R=404]
