@@ -21,6 +21,6 @@ To go to the admin panel, go to `http://<your site>/<some directory>/text-edit/a
 
 It is recommended that you set a password.
 
-If you forgot the password, delete `admin-pass`
+If you forget the password, delete `admin-pass`
 
 All documents are stored under `docs/`. Names (but not contents) are base64-encoded.
