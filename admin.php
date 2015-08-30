@@ -67,20 +67,20 @@ if (isset($_SESSION['priv'])){
     <h2>Admin | Online Text Editor 2.0</h2>
     <p>Type in the box and press Enter to submit.</p>
     <?php if (isset($_SESSION['priv'])){ ?>
-    <form action="admin.php" method="post">
+    <form action="admin" method="post">
       <p>Protect (make read-only): <input type="text" name="protect"></p>
     </form>
-    <form action="admin.php" method="post">
+    <form action="admin" method="post">
       <p>Unprotect: <input type="text" name="unprotect"></p>
     </form>
-    <form action="admin.php" method="post">
+    <form action="admin" method="post">
       <p>New Password: <input type="password" name="newpass"></p>
     </form>
-    <form action="admin.php" method="post">
+    <form action="admin" method="post">
       <p><input type="submit" name="logout" value="Logout"></p>
     </form>
     <?php } else { ?>
-    <form action="admin.php" method="post">
+    <form action="admin" method="post">
       <p>Password: <input type="password" name="pass"></p>
     </form>
     <?php } ?>
