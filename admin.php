@@ -65,7 +65,7 @@ if (isset($_SESSION['priv'])){
 <body>
   <div id="main">
     <h2>Admin | Online Text Editor 2.0</h2>
-    <p>Type in the box you want and press Enter to submit.</p>
+    <p>Type in the box and press Enter to submit.</p>
     <?php if (isset($_SESSION['priv'])){ ?>
     <form action="admin.php" method="post">
       <p>Protect (make read-only): <input type="text" name="protect"></p>
