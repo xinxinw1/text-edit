@@ -1,7 +1,7 @@
-/****** Online Text Editor Devel ******/
+/****** Online Text Editor 2.0 ******/
 
-/* requires tools 1.x */
-/* requires ajax 2.x */
+/* requires tools 4.5.0 */
+/* requires ajax 4.3.0 */
 
 if (navigator.userAgent.indexOf("Linux") != -1){
   $("name").style.font = "bold 16px \"DejaVu Sans Mono\"";
@@ -11,7 +11,7 @@ if (navigator.userAgent.indexOf("Linux") != -1){
 window.onload = function (){
   $("name").value = origName;
   $("text").value = origText;
-  document.title = origName + " | Online Text Editor Devel";
+  document.title = origName + " | Online Text Editor 2.0";
 }
 
 if (writable){
@@ -27,24 +27,24 @@ if (writable){
   document.onkeydown = checkSave;
   
   window.onbeforeunload = function (){
-    if (origText != $("text").value)return "You changes have not been saved.";
+    if (origText != $("text").value)return "Your changes have not been saved.";
   }
   
+  $.sefn(function (e){
+    $.al("Can't save file! HTTP Status $1", e.data.status);
+  });
+  
   function saveFile(name, text){
-    var file = "text-edit.php";
-    var param = "name=" + encodeURIComponent(name);
-    param += "&text=" + encodeURIComponent(text);
-    var func = function (resp){
-      if (resp != "")alert(resp);
-      else {
-        origText = text;
-        if (origName != name){
-          window.location.assign("text-edit.php?name=" + encodeURIComponent(name));
-        }
-      }
-    }
-    var type = "POST";
-    
-    Ajax.sendRequest(file, param, func, type);
+    $.apost("text-edit.php",
+            {name: encodeURIComponent(name), text: encodeURIComponent(text)},
+            function (r){
+              if (r != "")alert(r);
+              else {
+                origText = text;
+                if (origName != name){
+                  window.location.assign("text-edit.php?name=" + encodeURIComponent(name));
+                }
+              }
+            });
   }
 }
