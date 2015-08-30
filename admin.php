@@ -1,6 +1,11 @@
 <?php header("Cache-Control: no-cache"); ?>
 <?php session_start(); ?>
+<?php $ver = "2.1"; ?>
 <?php
+if (!file_exists("admin-pass")){
+  $_SESSION['priv'] = "yes";
+  $nopass = true;
+}
 if (isset($_POST['pass'])){
   $pass = $_POST['pass'];
   $file = "admin-pass";
@@ -14,8 +19,15 @@ if (isset($_SESSION['priv'])){
   if (isset($_POST['newpass'])){
     $pass = $_POST['newpass'];
     $file = "admin-pass";
-    file_put_contents($file, password_hash($pass, PASSWORD_DEFAULT));
-    $mess = "Changed password";
+    if ($pass == ""){
+      unlink($file);
+      $mess = "Unset password";
+      $nopass = true;
+    } else {
+      file_put_contents($file, password_hash($pass, PASSWORD_DEFAULT));
+      $mess = "Changed password";
+      if (isset($nopass))unset($nopass);
+    }
   }
   if (isset($_POST['protect'])){
     $origname = $_POST['protect'];
@@ -61,7 +73,7 @@ if (isset($_SESSION['priv'])){
 <html>
 
 <head>
-  <title>Admin | Online Text Editor 2.0</title>
+  <title>Admin | Online Text Editor <?php echo $ver; ?></title>
   <meta charset="UTF-8">
   <style>
   * {margin: 0; padding: 0; border: 0; font-family: "Courier New", "DejaVu Sans Mono", monospace;}
@@ -76,7 +88,7 @@ if (isset($_SESSION['priv'])){
 
 <body>
   <div id="main">
-    <h2>Admin | Online Text Editor 2.0<?php if (isset($_SESSION['priv'])){ ?> | <a href="admin?logout=true">Logout</a><?php } ?></h2>
+    <h2>Admin | Online Text Editor <?php echo $ver; ?><?php if (isset($_SESSION['priv']) && !isset($nopass)){ ?> | <a href="admin?logout=true">Logout</a><?php } ?></h2>
     <p>Type in the box and press Enter to submit.</p>
     <?php if (isset($_SESSION['priv'])){ ?>
     <form action="admin" method="post">

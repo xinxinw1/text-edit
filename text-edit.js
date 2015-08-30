@@ -1,7 +1,9 @@
-/****** Online Text Editor 2.0 ******/
+/****** Online Text Editor ******/
 
 /* requires tools 4.5.0 */
 /* requires ajax 4.3.0 */
+
+var ver = "2.1";
 
 function $(a){
   return document.getElementById(a);
@@ -16,7 +18,7 @@ if (navigator.userAgent.indexOf("Linux") != -1){
 window.onload = function (){
   $("name").value = origName;
   $("text").value = origText;
-  document.title = origName + " | Online Text Editor 2.0";
+  document.title = origName + " | Online Text Editor " + ver;
 }
 
 $("form").onsubmit = function (){

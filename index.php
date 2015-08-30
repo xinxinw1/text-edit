@@ -1,4 +1,5 @@
 <?php header("Cache-Control: no-cache"); ?>
+<?php $ver = "2.1"; ?>
 <?php
 if (isset($_POST['name'])){
   $name = rawurlencode($_POST['name']);
@@ -25,7 +26,7 @@ if (isset($_GET['name']) && $_GET['name'] != ""){
 <html>
 
 <head>
-  <title>Online Text Editor 2.0</title>
+  <title>Online Text Editor <?php echo $ver; ?></title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="text-edit.css">
   <script src="text-edit.js" defer></script>
