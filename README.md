@@ -13,7 +13,11 @@ $ git clone https://github.com/xinxinw1/text-edit.git
 
 Then visit `http://<your site>/<some directory>/text-edit/`
 
-## Usage
+## Basic Usage
+
+Go to `http://<your site>/<some directory>/text-edit/`, change "Title" to whatever file name you want, enter whatever text you want in the body, and press Ctrl-S to save. That's it!
+
+## Advanced Usage
 
 To go to a page directly, go to `http://<your site>/<some directory>/text-edit/?name=<file name>`
 
