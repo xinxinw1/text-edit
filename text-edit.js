@@ -43,7 +43,7 @@ if (writable){
     return new ActiveXObject("Microsoft.XMLHTTP");
   }
   
-  function apost(a, f){
+  function apost(a, o, f){
     var attempts = 0;
     (function inner(){
       var x = ajax();
@@ -61,14 +61,15 @@ if (writable){
       }
       x.open("POST", a, true);
       x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      x.send(prms(o));
+      x.send(o);
       attempts++;
     })();
   }
   
   function saveFile(name, text){
-    apost("text-edit.php?name=" + encodeURIComponent(name)
-                      + "text=" + encodeURIComponent(text),
+    apost("text-edit.php",
+          "name=" + encodeURIComponent(name) +
+          "&text=" + encodeURIComponent(text),
           function (r){
             if (r != "")alert(r);
             else {

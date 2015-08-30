@@ -15,10 +15,6 @@ $name = "Title"; $text = ""; $writable = "true";
 if (isset($_GET['name']) && $_GET['name'] != ""){
   $name = rawurlencode($_GET['name']);
   $file = "docs/" . base64_encode($name);
-  if (isset($_GET['type'])){
-    if ($_GET['type'] == "make-readonly")chmod($file, 0444);
-    if ($_GET['type'] == "make-writable")chmod($file, 0644);
-  }
   if (file_exists($file)){
     $text = rawurlencode(file_get_contents($file));
     $writable = is_writable($file)?"true":"false";
