@@ -1,6 +1,0 @@
-Online Text Editor 1.5 - Jul 18, 2013 14:39
-
-- no need to rawurldecode() $_GET or $_POST input; is already decoded by the time it gets to PHP
-- added writable checks
-- added hidden functions that change write permissions
-- put file save functions in if (writable){} block
