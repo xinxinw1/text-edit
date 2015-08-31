@@ -1,6 +1,6 @@
-# Simple Text Editor
+# Online Text Editor
 
-This online text editor allows you to host your own editable documents on your website.
+This simple text editor allows you to host your own editable documents on your website.
 Useful for things like schedules and notes that you want to be able to access from anywhere in just one click.
 
 A demo is available at http://musiclifephilosophy.com/codes/text-edit/
