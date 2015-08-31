@@ -30,3 +30,7 @@ It is recommended that you set a password.
 If you forget the password, delete `admin-pass`
 
 All documents are stored under `docs/`. Names (but not contents) are base64-encoded.
+
+## License
+
+This program is dedicated to the public domain using the [Creative Commons CC0](http://creativecommons.org/publicdomain/zero/1.0/). See `LICENSE.txt` for details.
