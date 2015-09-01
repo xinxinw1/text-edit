@@ -15,6 +15,16 @@ $ git clone https://github.com/xinxinw1/text-edit.git
 
 Then visit `http://<your site>/<some directory>/text-edit/`
 
+If you get a message saying `mkdir(): Permission denied`, do
+
+```
+$ cd text-edit
+$ mkdir docs
+$ chmod a+w docs
+```
+
+(Or use some other method to allow your server to write to the docs directory.)
+
 ## Basic Usage
 
 Go to `http://<your site>/<some directory>/text-edit/`, change "Title" to whatever file name you want, enter whatever text you want in the body, and press Ctrl-S to save. That's it!
