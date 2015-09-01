@@ -1,9 +1,6 @@
 /****** Online Text Editor ******/
 
-/* requires tools 4.5.0 */
-/* requires ajax 4.3.0 */
-
-var ver = "2.2";
+var ver = "2.3";
 
 function $(a){
   return document.getElementById(a);
@@ -15,10 +12,13 @@ if (navigator.userAgent.indexOf("Linux") != -1){
   $("text").style.font = "12px \"DejaVu Sans Mono\"";
 }
 
+var origTitle = origName + " | Online Text Editor " + ver;
+var newTitle = "*" + origTitle;
+
 window.onload = function (){
   $("name").value = origName;
   $("text").value = origText;
-  document.title = origName + " | Online Text Editor " + ver;
+  document.title = origTitle;
 }
 
 $("form").onsubmit = function (){
@@ -40,7 +40,13 @@ if (writable){
     }
   }
   
+  function checkKey(e){
+    if (origText != $("text").value)document.title = newTitle;
+    else document.title = origTitle;
+  }
+  
   document.onkeydown = checkSave;
+  document.onkeyup = checkKey;
   
   window.onbeforeunload = function (){
     if (origText != $("text").value)return "Your changes have not been saved.";
@@ -61,7 +67,7 @@ if (writable){
             f(x.responseText);
           } else if (x.status == 0 || x.status == 12029){
             if (attempts == 3)alert("Can't save file! Check your internet. HTTP Status " + x.status);
-            else lat(inner, 1000);
+            else setTimeout(inner, 1000);
           } else {
             alert("Can't save file! HTTP Status " + x.status);
           }
@@ -83,6 +89,7 @@ if (writable){
             else {
               origText = text;
               if (origName != name)go(name);
+              if (origText != $("text").value)document.title = newTitle;
             }
           });
   }
