@@ -15,7 +15,7 @@ $ git clone https://github.com/xinxinw1/text-edit.git
 
 Then visit `http://<your site>/<some directory>/text-edit/`
 
-If you get a message saying `mkdir(): Permission denied`, do
+If you get a message saying `mkdir(): Permission denied` when saving, do
 
 ```
 $ cd text-edit
