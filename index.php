@@ -1,5 +1,6 @@
 <?php header("Cache-Control: no-cache"); ?>
-<?php $ver = "2.1"; ?>
+<?php $ver = "2.2"; ?>
+<?php require "base64url.php"; ?>
 <?php
 if (isset($_POST['name'])){
   $name = rawurlencode($_POST['name']);
@@ -7,7 +8,7 @@ if (isset($_POST['name'])){
   
   if (!is_dir("docs"))mkdir("docs");
   
-  $file = "docs/" . base64_encode($name);
+  $file = "docs/" . base64urlencode($name);
   if (!file_exists($file) || is_writable($file)){
     die(file_put_contents($file, $text));
   } else die();
@@ -15,7 +16,7 @@ if (isset($_POST['name'])){
 $name = "Title"; $text = ""; $writable = "true";
 if (isset($_GET['name']) && $_GET['name'] != ""){
   $name = rawurlencode($_GET['name']);
-  $file = "docs/" . base64_encode($name);
+  $file = "docs/" . base64urlencode($name);
   if (file_exists($file)){
     $text = rawurlencode(file_get_contents($file));
     $writable = is_writable($file)?"true":"false";

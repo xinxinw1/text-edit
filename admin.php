@@ -1,6 +1,7 @@
 <?php header("Cache-Control: no-cache"); ?>
 <?php session_start(); ?>
-<?php $ver = "2.1"; ?>
+<?php $ver = "2.2"; ?>
+<?php require "base64url.php"; ?>
 <?php
 if (!file_exists("admin-pass")){
   $_SESSION['priv'] = "yes";
@@ -32,7 +33,7 @@ if (isset($_SESSION['priv'])){
   if (isset($_POST['protect'])){
     $origname = $_POST['protect'];
     $name = rawurlencode($origname);
-    $file = "docs/" . base64_encode($name);
+    $file = "docs/" . base64urlencode($name);
     if (file_exists($file)){
       chmod($file, 0444);
       $mess = "Protected \"$origname\"";
@@ -43,7 +44,7 @@ if (isset($_SESSION['priv'])){
   if (isset($_POST['unprotect'])){
     $origname = $_POST['unprotect'];
     $name = rawurlencode($origname);
-    $file = "docs/" . base64_encode($name);
+    $file = "docs/" . base64urlencode($name);
     if (file_exists($file)){
       chmod($file, 0644);
       $mess = "Unprotected \"$origname\"";
@@ -54,7 +55,7 @@ if (isset($_SESSION['priv'])){
   if (isset($_POST['delete'])){
     $origname = $_POST['delete'];
     $name = rawurlencode($origname);
-    $file = "docs/" . base64_encode($name);
+    $file = "docs/" . base64urlencode($name);
     if (file_exists($file)){
       unlink($file);
       $mess = "Deleted \"$origname\"";

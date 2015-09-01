@@ -3,7 +3,7 @@
 /* requires tools 4.5.0 */
 /* requires ajax 4.3.0 */
 
-var ver = "2.1";
+var ver = "2.2";
 
 function $(a){
   return document.getElementById(a);
