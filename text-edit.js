@@ -1,6 +1,6 @@
 /****** Online Text Editor ******/
 
-var ver = "2.3";
+var ver = "2.4";
 
 function $(a){
   return document.getElementById(a);
@@ -40,13 +40,13 @@ if (writable){
     }
   }
   
-  function checkKey(e){
+  function checkEdit(){
     if (origText != $("text").value)document.title = newTitle;
     else document.title = origTitle;
   }
   
   document.onkeydown = checkSave;
-  document.onkeyup = checkKey;
+  document.onkeyup = checkEdit;
   
   window.onbeforeunload = function (){
     if (origText != $("text").value)return "Your changes have not been saved.";
@@ -89,7 +89,7 @@ if (writable){
             else {
               origText = text;
               if (origName != name)go(name);
-              if (origText != $("text").value)document.title = newTitle;
+              checkEdit();
             }
           });
   }

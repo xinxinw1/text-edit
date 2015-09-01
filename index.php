@@ -1,5 +1,5 @@
 <?php header("Cache-Control: no-cache"); ?>
-<?php $ver = "2.3"; ?>
+<?php $ver = "2.4"; ?>
 <?php require "base64url.php"; ?>
 <?php
 if (isset($_POST['name'])){
