@@ -1,6 +1,6 @@
 /****** Online Text Editor ******/
 
-var ver = "2.4";
+var ver = "2.5";
 
 function $(a){
   return document.getElementById(a);
@@ -19,11 +19,6 @@ window.onload = function (){
   $("name").value = origName;
   $("text").value = origText;
   document.title = origTitle;
-}
-
-$("form").onsubmit = function (){
-  go($("name").value);
-  return false;
 }
 
 function go(name){

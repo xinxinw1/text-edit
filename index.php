@@ -1,5 +1,5 @@
 <?php header("Cache-Control: no-cache"); ?>
-<?php $ver = "2.4"; ?>
+<?php $ver = "2.5"; ?>
 <?php require "base64url.php"; ?>
 <?php
 if (isset($_POST['name'])){
@@ -27,10 +27,10 @@ if (isset($_GET['name']) && $_GET['name'] != ""){
 <html>
 
 <head>
-  <title>Online Text Editor <?php echo $ver; ?></title>
+  <title>Online Text Editor <?php echo $ver ?></title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="text-edit.css">
-  <script src="text-edit.js" defer></script>
+  <link rel="stylesheet" href="text-edit.css?v=<?php echo $ver ?>">
+  <script src="text-edit.js?v=<?php echo $ver ?>" defer></script>
   <script>
   var origName = decodeURIComponent("<?php echo $name ?>");
   var origText = decodeURIComponent("<?php echo $text ?>");
@@ -39,7 +39,7 @@ if (isset($_GET['name']) && $_GET['name'] != ""){
 </head>
 
 <body>
-  <form action="index.php" method="get" id="form">
+  <form method="get" id="form">
     <div id="top">
       <table><tr>
         <td id="input"><input name="name" type="text" id="name"></td>
