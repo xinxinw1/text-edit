@@ -1,6 +1,6 @@
 /****** Online Text Editor ******/
 
-var ver = "2.5";
+var ver = "2.6";
 
 function $(a){
   return document.getElementById(a);

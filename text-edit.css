@@ -9,6 +9,7 @@ table {border-collapse: collapse; border-spacing: 0;}
 #top table {width: 100%;}
 
 #input {padding: 0 5px; width: 100%;}
+input {font-family: "Courier New", "DejaVu Sans Mono", monospace;}
 input[type=text] {height: 30px; width: 100%; font-size: 18px; font-weight: bold;}
 
 input[type=button] {display: block; float: left; height: 30px; padding: 0 5px; font-size: 16px; font-weight: bold; background-color: #F1EFEB; border-left: 1px solid #000;}
