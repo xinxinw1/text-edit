@@ -1,6 +1,6 @@
 /****** Online Text Editor ******/
 
-var ver = "2.6";
+var ver = "2.7";
 
 function $(a){
   return document.getElementById(a);
@@ -8,7 +8,10 @@ function $(a){
 
 if (navigator.userAgent.indexOf("Linux") != -1){
   $("name").style.font = "bold 16px \"DejaVu Sans Mono\"";
-  $("buttons").style.font = "bold 16px \"DejaVu Sans Mono\"";
+  var arr = $("buttons").childNodes;
+  for (var i = 0; i < arr.length; i++){
+    if (arr[i].nodeType == 1)arr[i].style.font = "bold 16px \"DejaVu Sans Mono\"";
+  }
   $("text").style.font = "12px \"DejaVu Sans Mono\"";
 }
 

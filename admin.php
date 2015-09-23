@@ -1,6 +1,6 @@
 <?php header("Cache-Control: no-cache"); ?>
 <?php session_start(); ?>
-<?php $ver = "2.6"; ?>
+<?php $ver = "2.7"; ?>
 <?php require "base64url.php"; ?>
 <?php
 if (!file_exists("admin-pass")){
