@@ -1,6 +1,6 @@
 <?php header("Cache-Control: no-cache"); ?>
 <?php session_start(); ?>
-<?php $ver = "2.7"; ?>
+<?php $ver = "2.8.0"; ?>
 <?php require "base64url.php"; ?>
 <?php
 if (!file_exists("admin-pass")){
@@ -76,6 +76,7 @@ if (isset($_SESSION['priv'])){
 <head>
   <title>Admin | Online Text Editor <?php echo $ver; ?></title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
   * {margin: 0; padding: 0; border: 0; font-family: "Courier New", "DejaVu Sans Mono", monospace;}
   #main {margin: 10px; margin-right: 16px;}

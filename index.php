@@ -1,5 +1,5 @@
 <?php header("Cache-Control: no-cache"); ?>
-<?php $ver = "2.7"; ?>
+<?php $ver = "2.8.0"; ?>
 <?php require "base64url.php"; ?>
 <?php
 if (isset($_POST['name'])){
@@ -29,6 +29,7 @@ if (isset($_GET['name']) && $_GET['name'] != ""){
 <head>
   <title>Online Text Editor <?php echo $ver ?></title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
   <link rel="stylesheet" href="text-edit.css?v=<?php echo $ver ?>">
   <script src="text-edit.js?v=<?php echo $ver ?>" defer></script>
   <script>

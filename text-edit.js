@@ -1,18 +1,18 @@
 /****** Online Text Editor ******/
 
-var ver = "2.7";
+var ver = "2.8.0";
 
 function $(a){
   return document.getElementById(a);
 }
 
 if (navigator.userAgent.indexOf("Linux") != -1){
-  $("name").style.font = "bold 16px \"DejaVu Sans Mono\"";
+  $("name").style.font = "bold 16px \"DejaVu Sans Mono\", \"Courier New\", monospace";
   var arr = $("buttons").childNodes;
   for (var i = 0; i < arr.length; i++){
-    if (arr[i].nodeType == 1)arr[i].style.font = "bold 16px \"DejaVu Sans Mono\"";
+    if (arr[i].nodeType == 1)arr[i].style.font = "bold 16px \"DejaVu Sans Mono\", \"Courier New\", monospace";
   }
-  $("text").style.font = "12px \"DejaVu Sans Mono\"";
+  $("text").style.font = "12px \"DejaVu Sans Mono\", \"Courier New\", monospace";
 }
 
 var origTitle = origName + " | Online Text Editor " + ver;
