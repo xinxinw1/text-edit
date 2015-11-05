@@ -1,5 +1,5 @@
 <?php header("Cache-Control: no-cache"); ?>
-<?php $ver = "2.8.0"; ?>
+<?php $ver = "2.9.0"; ?>
 <?php require "base64url.php"; ?>
 <?php
 if (isset($_POST['name'])){
@@ -47,7 +47,9 @@ if (isset($_GET['name']) && $_GET['name'] != ""){
         <td id="buttons">
         <?php if ($writable == "false"){ ?>
           <input type="button" value="Read-only" id="readonly" disabled>
-          <?php } ?>
+        <?php } else { ?>
+          <input type="button" value="Save" title="Ctrl+S" id="save" disabled>
+        <?php } ?>
         </td>
       </tr></table>
     <div id="main"><textarea id="text"<?php if ($writable == "false"){ ?> readonly<?php } ?>></textarea></div>
