@@ -47,6 +47,7 @@ $ chmod a+w docs
 
 ```
 $ docker build . -t xinxinw/text-edit
+$ docker push xinxinw/text-edit
 ```
 
 ### Run
