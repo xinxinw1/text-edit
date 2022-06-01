@@ -35,8 +35,8 @@ If you get a message saying `mkdir(): Permission denied` when saving, do
 
 ```
 $ cd text-edit
-$ mkdir docs
-$ chmod a+w docs
+$ mkdir data
+$ chmod a+w data
 ```
 
 (Or use some other method to allow your server to write to the docs directory.)
