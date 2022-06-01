@@ -3,13 +3,13 @@
 <?php $ver = "2.9.0"; ?>
 <?php require "base64url.php"; ?>
 <?php
-if (!file_exists("admin-pass")){
+if (!file_exists("data/admin-pass")){
   $_SESSION['priv'] = "yes";
   $nopass = true;
 }
 if (isset($_POST['pass'])){
   $pass = $_POST['pass'];
-  $file = "admin-pass";
+  $file = "data/admin-pass";
   if (!file_exists($file) || password_verify($pass, file_get_contents($file))){
     $_SESSION['priv'] = "yes";
   } else {
@@ -19,7 +19,7 @@ if (isset($_POST['pass'])){
 if (isset($_SESSION['priv'])){
   if (isset($_POST['newpass'])){
     $pass = $_POST['newpass'];
-    $file = "admin-pass";
+    $file = "data/admin-pass";
     if ($pass == ""){
       unlink($file);
       $mess = "Unset password";
@@ -33,7 +33,7 @@ if (isset($_SESSION['priv'])){
   if (isset($_POST['protect'])){
     $origname = $_POST['protect'];
     $name = rawurlencode($origname);
-    $file = "docs/" . base64urlencode($name);
+    $file = "data/docs/" . base64urlencode($name);
     if (file_exists($file)){
       chmod($file, 0444);
       $mess = "Protected \"$origname\"";
@@ -44,7 +44,7 @@ if (isset($_SESSION['priv'])){
   if (isset($_POST['unprotect'])){
     $origname = $_POST['unprotect'];
     $name = rawurlencode($origname);
-    $file = "docs/" . base64urlencode($name);
+    $file = "data/docs/" . base64urlencode($name);
     if (file_exists($file)){
       chmod($file, 0644);
       $mess = "Unprotected \"$origname\"";
@@ -55,7 +55,7 @@ if (isset($_SESSION['priv'])){
   if (isset($_POST['delete'])){
     $origname = $_POST['delete'];
     $name = rawurlencode($origname);
-    $file = "docs/" . base64urlencode($name);
+    $file = "data/docs/" . base64urlencode($name);
     if (file_exists($file)){
       unlink($file);
       $mess = "Deleted \"$origname\"";

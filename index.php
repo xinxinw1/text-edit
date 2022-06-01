@@ -6,9 +6,10 @@ if (isset($_POST['name'])){
   $name = rawurlencode($_POST['name']);
   $text = $_POST['text'];
   
-  if (!is_dir("docs"))mkdir("docs");
+  if (!is_dir("data"))mkdir("data");
+  if (!is_dir("data/docs"))mkdir("data/docs");
   
-  $file = "docs/" . base64urlencode($name);
+  $file = "data/docs/" . base64urlencode($name);
   if (!file_exists($file) || is_writable($file)){
     die(file_put_contents($file, $text));
   } else die();
@@ -16,7 +17,7 @@ if (isset($_POST['name'])){
 $name = "Title"; $text = ""; $writable = "true";
 if (isset($_GET['name']) && $_GET['name'] != ""){
   $name = rawurlencode($_GET['name']);
-  $file = "docs/" . base64urlencode($name);
+  $file = "data/docs/" . base64urlencode($name);
   if (file_exists($file)){
     $text = rawurlencode(file_get_contents($file));
     $writable = is_writable($file)?"true":"false";
