@@ -41,6 +41,27 @@ $ chmod a+w docs
 
 (Or use some other method to allow your server to write to the docs directory.)
 
+## Docker
+
+### Build
+
+```
+$ docker build . -t xinxinw/text-edit
+```
+
+### Run
+
+```
+$ docker run -p 8080:80 -v "$PWD/data":/var/www/html/data:rw -d xinxinw/text-edit
+```
+
+## Get filenames
+
+```
+$ cd data/docs
+$ ls -N | while read in; do echo "$in" | base64 -d; echo; done
+```
+
 ## License
 
 This program is dedicated to the public domain using the [Creative Commons CC0](http://creativecommons.org/publicdomain/zero/1.0/). See `LICENSE.txt` for details.
