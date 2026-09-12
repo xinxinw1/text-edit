@@ -7,19 +7,19 @@ A demo is available at https://xin-xin.me/php/text-edit/
 
 ## Basic Usage
 
-Go to `http://<your site>/<some directory>/text-edit/`, change "Title" to whatever file name you want, enter whatever text you want in the body, and press Ctrl-S to save. That's it!
+Go to `http://<your site>/<some directory>/text-edit/public/`, change "Title" to whatever file name you want, enter whatever text you want in the body, and press Ctrl-S to save. That's it!
 
 ## Advanced Usage
 
-To go to a page directly, go to `http://<your site>/<some directory>/text-edit/?name=<file name>`
+To go to a page directly, go to `http://<your site>/<some directory>/text-edit/public/?name=<file name>`
 
-To go to the admin panel, go to `http://<your site>/<some directory>/text-edit/admin`
+To go to the admin panel, go to `http://<your site>/<some directory>/text-edit/public/admin`
 
 It is recommended that you set a password.
 
-If you forget the password, delete `admin-pass`
+If you forget the password, delete `public/data/admin-pass`
 
-All documents are stored under `docs/`. Names (but not contents) are base64-encoded.
+All documents are stored under `public/data/docs/`. Names (but not contents) are base64-encoded.
 
 ## Installation
 
@@ -29,17 +29,36 @@ You need a server that runs php and git and has .htaccess and mod_rewrite enable
 $ git clone https://github.com/xinxinw1/text-edit.git
 ```
 
-Then visit `http://<your site>/<some directory>/text-edit/`
+Then visit `http://<your site>/<some directory>/text-edit/public/`
 
 If you get a message saying `mkdir(): Permission denied` when saving, do
 
 ```
-$ cd text-edit
+$ cd text-edit/public
 $ mkdir data
 $ chmod a+w data
 ```
 
 (Or use some other method to allow your server to write to the docs directory.)
+
+## Upgrading from before the `public/` move
+
+The servable files (`index.php`, `admin.php`, `base64url.php`, `text-edit.css`,
+`text-edit.js`, `.htaccess`) now live in a `public/` subdirectory, so that nothing else in
+the repository is reachable over the web. If you installed before this change, after pulling
+you need to:
+
+1. Move your documents into the new location, or the editor will come up empty:
+
+   ```
+   $ mv data public/data
+   ```
+
+   Documents are stored under base64-encoded names, so a missing `data` directory looks like
+   data loss rather than a directory that needs moving.
+
+2. Update the URL you use (or your `DocumentRoot` / symlink) to point at
+   `text-edit/public/` instead of `text-edit/`.
 
 ## Docker
 
@@ -59,7 +78,7 @@ $ docker run -p 8080:80 -v "$PWD/data":/var/www/html/data:rw -d xinxinw/text-edi
 ## Get filenames
 
 ```
-$ cd data/docs
+$ cd public/data/docs
 $ ls -N | while read in; do echo "$in" | base64 -d; echo; done
 ```
 
